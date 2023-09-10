@@ -23,7 +23,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
 
   const patchFriend = async () => {
     const response = await fetch(
-      `https://sociobackend-hlk9.onrender.com//users/${_id}/${friendId}`,
+      `https://sociobackend-hlk9.onrender.com/users/${_id}/${friendId}`,
       {
         method: "PATCH",
         headers: {
@@ -64,6 +64,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
           </Typography>
         </Box>
       </FlexBetween>
+      {_id!==friendId &&
       <IconButton
         onClick={() => patchFriend()}
         sx={{ backgroundColor: primaryLight, p: "0.6rem" }}
@@ -74,6 +75,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
           <PersonAddOutlined sx={{ color: primaryDark }} />
         )}
       </IconButton>
+      }
     </FlexBetween>
   );
 };
